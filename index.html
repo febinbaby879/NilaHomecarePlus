@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8f5ee" />
+    <title>Nila Homeware Plus | Everyday home essentials</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#">
+        <img
+          class="brand-logo"
+          src="assets/nila-logo.png"
+          alt="Nila Homeware Plus logo"
+        />
+      </a>
+      <div class="fresh"><span></span> Freshly packed for your home</div>
+      <a class="header-order" href="#catalogue"
+        >Shop essentials <span>↗</span></a
+      >
+    </header>
+
+    <main class="page-wrap">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow light">EVERYDAY HOME ESSENTIALS</span>
+          <h1>A cleaner home,<br /><i>a happier you.</i></h1>
+          <p>
+            Thoughtful cleaning essentials for the little moments that make a
+            house feel like home. Pick your favourites and order directly on
+            WhatsApp.
+          </p>
+          <div class="hero-points">
+            <span>✓ Quality home care</span
+            ><span>✓ Easy WhatsApp ordering</span>
+          </div>
+          <a class="hero-cta" href="#catalogue">Explore products <b>↓</b></a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="hero-stamp">
+            <small>CARE FOR</small><strong>every<br />corner</strong>
+          </div>
+          <div class="hero-bottle bottle-a">✦</div>
+          <div class="hero-bottle bottle-b">✧</div>
+          <span class="art-note">A little freshness goes a long way.</span>
+        </div>
+      </section>
+
+      <section class="shop-layout" id="catalogue">
+        <div class="catalogue" id="productsSection">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">THE DAILY SHELF</span>
+              <h2>Choose your essentials</h2>
+            </div>
+            <p>Tap + to add products to your order</p>
+          </div>
+          <div class="filters" id="filters">
+            <button class="filter active" data-filter="all">
+              All products
+            </button>
+            <button class="filter" data-filter="wash">Washing</button>
+            <button class="filter" data-filter="surface">Surface care</button>
+            <button class="filter" data-filter="bathroom">Bathroom</button>
+          </div>
+          <div class="product-grid" id="productGrid"></div>
+        </div>
+
+        <aside class="order-card" id="order">
+          <div class="order-head">
+            <div>
+              <span class="eyebrow">YOUR ORDER</span>
+              <h3 id="orderTitle">A fresh start</h3>
+            </div>
+            <span class="item-count" id="itemCount">0 items</span>
+          </div>
+          <div class="order-lines" id="orderLines">
+            <div class="empty-state">
+              <span>＋</span>
+              <p>Your basket is waiting.</p>
+              <small>Add a few home-care favourites to get started.</small>
+            </div>
+          </div>
+          <div class="total-row">
+            <span>Order subtotal</span><strong id="orderTotal">₹0.00</strong>
+          </div>
+          <p class="small-note">
+            Delivery charges, if any, can be confirmed on WhatsApp.
+          </p>
+
+          <form id="checkoutForm">
+            <label for="customerName">Your name</label>
+            <input
+              id="customerName"
+              name="name"
+              placeholder="e.g. Anu Thomas"
+              required
+            />
+            <label for="customerPhone">Calling number</label>
+            <input
+              id="customerPhone"
+              name="phone"
+              type="tel"
+              inputmode="tel"
+              placeholder="e.g. 98765 43210"
+              required
+            />
+            <label for="customerAddress">Delivery address</label>
+            <textarea
+              id="customerAddress"
+              name="address"
+              rows="3"
+              placeholder="House name, street, area, landmark..."
+              required
+            ></textarea>
+
+            <div class="location-row">
+              <button type="button" class="location-btn" id="locateBtn">
+                <span>◎</span> Use my current location
+              </button>
+              <span class="location-status" id="locationStatus"
+                >Not added yet</span
+              >
+            </div>
+            <div class="map-wrap" id="mapWrap" hidden>
+              <iframe
+                id="mapFrame"
+                title="Selected delivery location"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <div class="map-actions">
+                <a id="openMap" target="_blank" rel="noopener"
+                  >Open in Google Maps ↗</a
+                ><button type="button" id="clearLocation">
+                  Remove location
+                </button>
+              </div>
+            </div>
+            <p class="location-help">
+              Optional — share your location to help us find your delivery
+              address easily.
+            </p>
+            <button class="whatsapp-btn" type="submit">
+              <span>↗</span> Send order on WhatsApp
+            </button>
+            <p class="secure-note">
+              No online payment or account needed. Confirm your order in chat.
+            </p>
+          </form>
+        </aside>
+      </section>
+      <footer>
+        <span>© <span id="year"></span> Nila Homeware Plus</span
+        ><span>Made for a fresher everyday.</span>
+      </footer>
+    </main>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
