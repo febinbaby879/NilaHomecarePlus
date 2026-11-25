@@ -2,7 +2,7 @@
 // Example for India: 919876543210
 const WHATSAPP_NUMBER = "919539040769";
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzbnq_u62QVaifWioF0nHh7Ay6af9J0G8lSfzDCvAL1u6NZFqq92wWJo08CiIYel9Hr/exec";
+  "https://script.google.com/macros/s/AKfycbyWv4S6XZK25P4sC7o6qI6QqNKmwU_nis12G-rMTGcXi8J-tOdKJ_wPvPYpI5kCTowQ/exec";
 
 const products = [
   {
@@ -354,6 +354,10 @@ document
 
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
+    const submitBtn = e.currentTarget.querySelector('button[type="submit"]');
+    if (submitBtn?.disabled) return;
+    if (submitBtn) submitBtn.disabled = true;
+
     // Open WhatsApp tab before the asynchronous request.
     const whatsappTab = window.open("about:blank", "_blank");
 
@@ -384,9 +388,13 @@ document
 
       if (whatsappTab) {
         whatsappTab.location.href = whatsappUrl;
+      } else {
+        window.location.href = whatsappUrl;
       }
 
       showToast("Could not confirm order saving. Please contact us.");
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
     }
   });
 
